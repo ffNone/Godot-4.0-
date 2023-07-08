@@ -1,0 +1,10 @@
+res://scenes/welcome.tscn
+res://Control.gd
+res://scenes/welcome.gd
+res://Control.tscn
+res://addons/godot-firebase/database/database.gd
+res://addons/godot-firebase/firestore/firestore.gd
+res://addons/godot-firebase/functions/functions.gd
+res://addons/godot-firebase/firestore/firestore_document.gd
+res://ColorRect.gd
+res://MenuButton.gd

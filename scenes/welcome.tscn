@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvhe7vn46ova6"]
+
+[ext_resource type="Script" path="res://scenes/welcome.gd" id="1_6csii"]
+[ext_resource type="Script" path="res://scenes/ColorRect2.gd" id="1_36824"]
+
+[node name="Control1" type="Node2D"]
+z_index = 1
+script = ExtResource("1_6csii")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -20.0
+offset_right = 1174.0
+offset_bottom = 658.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+color = Color(0.113725, 0.0588235, 0.211765, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 57.0
+offset_top = 255.0
+offset_right = 337.0
+offset_bottom = 510.0
+grow_vertical = 0
+script = ExtResource("1_36824")
+
+[node name="username" type="LineEdit" parent="."]
+offset_left = 99.0
+offset_top = 283.0
+offset_right = 192.0
+offset_bottom = 314.0
+text = "Username"
+
+[node name="OK" type="Button" parent="."]
+offset_left = 131.0
+offset_top = 318.0
+offset_right = 163.0
+offset_bottom = 349.0
+text = "OK"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+offset_left = 101.0
+offset_top = 353.0
+offset_right = 191.0
+offset_bottom = 379.0
+alignment = 1
+
+[node name="Quit" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1034.0
+offset_top = 575.0
+offset_right = 1145.0
+offset_bottom = 640.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Quit"
+
+[connection signal="button_up" from="OK" to="." method="_on_ok_button_up"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="button_up" from="Quit" to="." method="_on_quit_button_up"]
