@@ -81,7 +81,7 @@ func _on_reset_button_up():
 func add():
 
 	var add_task: FirestoreTask = firestore_collection.add(userinfo.email, 
-	{ 'active': 'true', 'name': 'username' , 'coins': '', 'color_rect': "", "button_option" : "" , "score" : ""})
+	{ 'scene': '' , 'active': 'true', 'name': 'username' , 'coins': '', 'color_rect': "", "button_option" : "" , "score" : ""})
 	var document = await add_task.add_document
 	print(userinfo.email)
 var username
@@ -93,4 +93,17 @@ func get_data():
 	username = document.doc_fields.name
 	email = document.doc_name
 
-
+var scene
+func load_game():
+	
+	var file = FileAccess.open("user://scene.save",FileAccess.READ) 
+	var json_str = file.get_as_text()
+	var json = JSON.new()
+	var data = json.parse_string(json_str)
+	scene = data["scene"]
+	file.close()
+func _enter_tree():
+	load_game()
+	if scene== str('Control1') :
+		get_tree().change_scene_to_file("res://scenes/welcome.tscn")
+	else : return 
